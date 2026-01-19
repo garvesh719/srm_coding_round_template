@@ -44,6 +44,16 @@ Input: []  → Output: 0
 
 
 def compressed_stack_length(lst):
+    stack = []
+
+    for num in lst:
+        if stack and stack[-1] == num:
+            stack.pop()
+        else:
+            stack.append(num)
+
+    return len(stack)
+
     """
     Calculate the number of elements remaining after cancellations.
 
