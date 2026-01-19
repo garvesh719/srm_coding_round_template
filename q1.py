@@ -27,9 +27,30 @@ Explanation:
 - Single character occurrences are not considered stable (must appear at least
   twice)
 """
+def first_stable_character(s)
+    n = len(s)
+    i = 0
 
+    while i < n:
+        j = i
+        
+        # Extend j while characters are the same
+        while j < n and s[j] == s[i]:
+            j += 1
+        
+        group_length = j - i
+        
+        # Must appear at least twice
+        if group_length >= 2:
+            ch = s[i]
+            # Check if this character appears elsewhere outside the group
+            if ch not in s[:i] and ch not in s[j:]:
+                return ch
+        
+        i = j
 
-def first_stable_character(s):
+    return None
+
     """
     Find the first stable character in the string.
 
